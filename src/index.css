@@ -14,3 +14,30 @@ body {
   color: white;
   font-family: system-ui, sans-serif;
 }
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox, yayyy, also work for Brave */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Add smooth scrolling behavior, but could be optional */
+.overflow-x-auto {
+  scroll-behavior: smooth;
+  cursor: grab;
+}
+
+.overflow-x-auto:active {
+  cursor: grabbing;
+}
+/* Force horizontal scroll behavior with smooth scrolling */
+.horizontal-scroll {
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: none;
+  touch-action: pan-x;
+  scroll-behavior: smooth;
+}

@@ -1,5 +1,5 @@
 import ProjectCard from './components/ProjectCard';
-import { FiGithub, FiLinkedin } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import {
   SiReact,
   SiTypescript,
@@ -24,6 +24,27 @@ const projects = [
     technologies: ['Python', 'FastAPI', 'PostgreSQL'],
     githubUrl: 'https://github.com/sourcer-amir/project-two',
   },
+  {
+    title: 'Project One',
+    description: 'A cool project I built with React and TypeScript.',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/sourcer-amir/project-one',
+    liveUrl: 'https://your-project.vercel.app',
+  },
+  {
+    title: 'Project One',
+    description: 'A cool project I built with React and TypeScript.',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/sourcer-amir/project-one',
+    liveUrl: 'https://your-project.vercel.app',
+  },
+  {
+    title: 'Project One',
+    description: 'A cool project I built with React and TypeScript.',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/sourcer-amir/project-one',
+    liveUrl: 'https://your-project.vercel.app',
+  },
 ];
 
 // Skills
@@ -42,19 +63,37 @@ export default function App() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-gray-950/80 backdrop-blur-sm z-50 border-b border-gray-800">
         <div className="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 className="text-xl font-bold text-[--color-accent]">Santiago Amir Rodríguez González</h1>
+          <h1 className="text-xl font-bold text-[--color-accent]">Santiago Rodríguez</h1>
           <div className="flex items-center gap-6">
+            {/* CV Download Dropdown - FIRST */}
+            <div className="relative group">
+              <button className="bg-[--color-accent] hover:bg-[--color-accent-hover] px-4 py-2 rounded-lg font-medium transition-colors flex items-center gap-2">
+                Download CV
+                <span className="text-xs">▼</span>
+              </button>
+              
+              <div className="absolute right-0 mt-2 w-48 bg-gray-900 border border-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                <a 
+                  href="/Portfolio/cv-en.pdf" 
+                  download="Santiago_Rodriguez_CV_EN.pdf"
+                  className="block px-4 py-3 hover:bg-gray-800 rounded-t-lg transition-colors"
+                >
+                  🇺🇸 English
+                </a>
+                <a 
+                  href="/Portfolio/cv-es.pdf" 
+                  download="Santiago_Rodriguez_CV_ES.pdf"
+                  className="block px-4 py-3 hover:bg-gray-800 rounded-b-lg transition-colors"
+                >
+                  🇪🇸 Español
+                </a>
+              </div>
+            </div>
+            
             <a href="#about" className="hover:text-[--color-accent] transition-colors">About</a>
             <a href="#skills" className="hover:text-[--color-accent] transition-colors">Skills</a>
             <a href="#projects" className="hover:text-[--color-accent] transition-colors">Projects</a>
-            <a 
-              href="https://github.com/sourcer-amir" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:text-[--color-accent] transition-colors"
-            >
-              <FiGithub size={20} />
-            </a>
+            <a href="#contact" className="hover:text-[--color-accent] transition-colors">Contact</a>
           </div>
         </div>
       </nav>
@@ -96,8 +135,12 @@ export default function App() {
               I'm passionate about creating solutions that make a real impact.
             </p>
           </div>
-          <div className="w-64 h-64 mx-auto bg-gradient-to-br from-[--color-accent] to-blue-600 rounded-full flex items-center justify-center">
-            <span className="text-4xl">👨‍💻</span>
+          <div className="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-[--color-accent]">
+            <img 
+              src="/Portfolio/profile.png"  
+              alt="Santiago Amir Rodríguez González" 
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </section>
@@ -120,39 +163,76 @@ export default function App() {
       </section>
 
       {/* Projects */}
-      <section id="projects" className="max-w-4xl mx-auto px-6 py-20">
-        <h2 className="text-4xl font-bold text-center mb-12">
-          My <span className="text-[--color-accent]">Projects</span>
-        </h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project) => (
-            <ProjectCard key={project.title} {...project} />
-          ))}
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 border-t border-gray-800 py-12">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="flex justify-center gap-6 mb-6">
-            <a 
-              href="https://github.com/sourcer-amir" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:text-[--color-accent] transition-colors"
-            >
-              <FiGithub size={24} />
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/santiago-amir-rodriguez-gonzalez/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:text-[--color-accent] transition-colors"
-            >
-              <FiLinkedin size={24} />
-            </a>
+<section 
+  id="projects" 
+  className="py-20 overflow-hidden"
+  onWheel={(e) => {
+    const target = e.target as HTMLElement;
+    const scrollContainer = target.closest('.horizontal-scroll');
+    if (scrollContainer) {
+      e.preventDefault();
+      scrollContainer.scrollLeft += e.deltaY * 10; // Note for future self: Adjust scroll speed here
+    }
+  }}
+>
+  <div className="max-w-6xl mx-auto px-6">
+    <h2 className="text-4xl font-bold text-center mb-12">
+      My <span className="text-[--color-accent]">Projects</span>
+    </h2>
+    
+    {/* Horizontal Scroll Container */}
+    <div className="horizontal-scroll overflow-x-auto overflow-y-hidden pb-8 scrollbar-hide touch-pan-x">
+      <div className="flex gap-8 w-max">
+        {projects.map((project, index) => (
+          <div key={index} className="w-96 flex-shrink-0">
+            <ProjectCard {...project} />
           </div>
-          <p className="text-gray-500">© 2025 Santiago Amir Rodríguez González. Built with React & Tailwind CSS.</p>
+        ))}
+      </div>
+    </div>
+    
+    <p className="text-center text-gray-500 text-sm mt-4">
+      ← Scroll horizontally to see all projects →
+    </p>
+  </div>
+</section>
+
+      {/* Footer / Contact */}
+      <footer id="contact" className="bg-gray-900 border-t border-gray-800 py-20">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-4xl font-bold mb-8">
+            Get in <span className="text-[--color-accent]">Touch</span>
+          </h2>
+        <div className="flex justify-center gap-6 mb-12">
+          <a 
+          href="https://github.com/sourcer-amir" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="hover:text-[--color-accent] transition-colors"
+          title="GitHub"
+          >
+          <FiGithub size={28} />
+          </a>
+          <a 
+            href="https://www.linkedin.com/in/santiago-amir-rodriguez-gonzalez/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-[--color-accent] transition-colors"
+            title="LinkedIn"
+          >
+          <FiLinkedin size={28} />
+          </a>
+          <a 
+            href="mailto:santiro.amir@gmail.com"
+            className="hover:text-[--color-accent] transition-colors"
+            title="Email"
+          >
+          <FiMail size={28} />
+          </a>
+        </div>
+        <p className="text-gray-500 text-sm">
+          © 2025 Santiago Rodríguez. Built with React & Tailwind CSS.
+        </p>
         </div>
       </footer>
     </div>
