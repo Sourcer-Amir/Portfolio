@@ -1,60 +1,54 @@
 import ProjectCard from './components/ProjectCard';
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
-import {
+import {//Skills_Teleporter
   SiReact,
   SiTypescript,
   SiJavascript,
   SiPython,
-  SiNodedotjs,
+  SiMysql,
   SiTailwindcss,
+  SiAmazonwebservices,
+  SiCplusplus,
 } from 'react-icons/si';
 
 // Projects
 const projects = [
   {
     title: 'Project One',
-    description: 'A cool project I built with React and TypeScript.',
+    description: "A cool project, I'm cooking, I just can say, Are you tired to not know who stop to follow you on Instagram?",
+    imageUrl: '/Portfolio/clubpenguin-penguin.gif', 
     technologies: ['React', 'TypeScript', 'Tailwind CSS'],
     githubUrl: 'https://github.com/sourcer-amir/project-one',
     liveUrl: 'https://your-project.vercel.app',
   },
   {
     title: 'Project Two',
-    description: 'Another awesome project demonstrating my skills.',
-    technologies: ['Python', 'FastAPI', 'PostgreSQL'],
+    description: 'Another awesome project',
+    imageUrl: '/Portfolio/clubpenguin-penguin.gif', // 
+    technologies: ['Not sure yet'],
     githubUrl: 'https://github.com/sourcer-amir/project-two',
   },
   {
-    title: 'Project One',
-    description: 'A cool project I built with React and TypeScript.',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/sourcer-amir/project-one',
-    liveUrl: 'https://your-project.vercel.app',
+    title: 'Project Three',
+    description: 'Another awesome project',
+    imageUrl: '/Portfolio/clubpenguin-penguin.gif', // 
+    technologies: ['Not sure yet'],
+    githubUrl: 'https://github.com/sourcer-amir/project-two',
   },
-  {
-    title: 'Project One',
-    description: 'A cool project I built with React and TypeScript.',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/sourcer-amir/project-one',
-    liveUrl: 'https://your-project.vercel.app',
-  },
-  {
-    title: 'Project One',
-    description: 'A cool project I built with React and TypeScript.',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/sourcer-amir/project-one',
-    liveUrl: 'https://your-project.vercel.app',
-  },
+  // Projectssssssss
 ];
 
-// Skills
+// Skills_Teleporter
 const skills = [
   { name: 'React', icon: SiReact, color: 'text-blue-400' },
   { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-600' },
   { name: 'JavaScript', icon: SiJavascript, color: 'text-yellow-400' },
   { name: 'Python', icon: SiPython, color: 'text-green-400' },
-  { name: 'Node.js', icon: SiNodedotjs, color: 'text-green-500' },
+  { name: 'MySQL', icon: SiMysql, color: 'text-blue-500' },
   { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-cyan-400' },
+  { name: 'AWS', icon: SiAmazonwebservices, color: 'text-orange-500'  },
+  { name: 'C++', icon: SiCplusplus, color: 'text-blue-500'  },
+ 
 ];
 
 export default function App() {
